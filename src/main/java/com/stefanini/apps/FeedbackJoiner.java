@@ -70,7 +70,7 @@ public class FeedbackJoiner {
 
 		for (String fileName : listFiles) {
 			if (fileName.endsWith("00_Controle.xlsx") || fileName.endsWith("feedbackConsolidado.xlsx")
-					|| fileName.startsWith("~"))
+					|| fileName.contains("~") || fileName.endsWith("joinFeedbacks-1.0.jar"))
 				continue;
 			System.out.println(fileName + " abrindo ...");
 			FileInputStream arquivo = new FileInputStream(new File(fileName));
@@ -86,7 +86,7 @@ public class FeedbackJoiner {
 		}
 
 		FileOutputStream out = new FileOutputStream(
-				FEEDBACK_DIRECTORY + (resultPlan == null ? "\\feedbackConsolidado.xlsx" : ("\\" + resultPlan)));
+				FEEDBACK_DIRECTORY + "\\consolidador" + (resultPlan == null ? "\\feedbackConsolidado.xlsx" : ("\\" + resultPlan)));
 		workbookConsolidation.write(out);
 		out.close();
 	}
@@ -163,7 +163,7 @@ public class FeedbackJoiner {
 	}
 
 	private String extractRole(Sheet sh) {
-		Row row = sh.getRow(5);
+		Row row = sh.getRow(6);
 		Cell cell = row.getCell(0);
 		return cell.getStringCellValue().replace("CARGO / FUNÇÃO: ", "");
 	}
