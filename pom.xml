@@ -4,7 +4,7 @@
 	<groupId>com.stefanini.apps</groupId>
 	<artifactId>joinFeedbacks</artifactId>
 	<packaging>jar</packaging>
-	<version>1.0-SNAPSHOT</version>
+	<version>1.0</version>
 	<name>joinFeedbacks</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
