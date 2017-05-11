@@ -58,9 +58,11 @@ public class FeedbackJoiner {
 	private static final int MANAGER_CELL = 0;
 	private static final String FEEDBACK_DIRECTORY = "C:\\Stefanini\\PJ00212 - BoB\\RH\\Feedbacks";
 
+	@SuppressWarnings("resource")
 	public void join(String feedbackDirectory, String resultPlan) throws Exception {
 		List<String> listFiles = this.listFiles(feedbackDirectory == null ? FEEDBACK_DIRECTORY : feedbackDirectory);
-		Workbook workbookConsolidation = new XSSFWorkbook();
+		Workbook workbookConsolidation;
+		workbookConsolidation = new XSSFWorkbook();
 		Sheet shConsolidation = workbookConsolidation.createSheet();
 		int rowCount = 0;
 
